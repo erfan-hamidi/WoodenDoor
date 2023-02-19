@@ -115,3 +115,43 @@ CREATE table post_comment(
 );
 
 alter table post_comment add CONSTRAINT reply_fk foreign key (cidFK) references post_comment(cidFK);
+
+CREATE table Tags(
+    tag varchar(50) not null,
+    jid_fk int not null,
+    CONSTRAINT tag_pkey PRIMARY KEY (tag,jid_fk),
+    CONSTRAINT jid_tag foreign key (jid_fk) references job_ad(JID)
+
+);
+
+CREATE table images(
+    url_image text,
+    pid_fk int not null,
+    CONSTRAINT image_pkey PRIMARY KEY(url_image,pid_fk),
+    CONSTRAINT post_image foreign key (pid_fk) references post(pID)
+
+);
+
+CREATE table skill(
+    text_skill text,
+    email text,
+    CONSTRAINT skill_pkey PRIMARY key  (text_skill,email),
+    CONSTRAINT email_fk_skill foreign key (email) references Applicant(email)
+);
+
+CREATE table react(
+    reaction char,
+    email text,
+    pid_fk int,
+    CONSTRAINT react_pkey PRIMARY KEY (email,pid_fk),
+    CONSTRAINT email_fk_react foreign key (email) references User_feild(email),
+    CONSTRAINT pid_fk_react foreign key (pid_fk) references post(pID)
+);
+
+CREATE table save_post(
+    email text,
+    pid_fk int,
+    CONSTRAINT save_pkey PRIMARY key (email, pid_fk),
+    CONSTRAINT email_save foreign key (email) references User_feild(email),
+    CONSTRAINT pid_save foreign key (pid_fk) references post(pID)
+);
