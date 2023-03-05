@@ -67,19 +67,23 @@ from (
 -------------------
 -- 7
 
-create view Exp_view(Email, years)
+create view Exp_view(email, years)
 AS (
-				select Email_FK, sum(age)
+		select email, sum(age)
 		from Applicant as A,
-				(select timestampdiff(YEAR, Start, End) as age, Email_FK, Title, Details, Company, Salary
-				from Experiences) as Ex
-		where A.Email_FK = Ex.Email_FK
-		group by Email_FK
+				(select timestampdiff(YEAR, startdate, enddate) as age, E.*
+				from Experiences E) as Ex
+		where A.email = Ex.email
+		group by email
 );
 
 select count(*)
-from Exp, Applicant as AP
-where years >= 3 and years <= 5 and AP.Email_FK = Exp.Email and AP.Req_Salary >= 12000000 and AP.Req_Salary <= 16000000;
+from Exp_view, Applicant as AP
+where years >= 3 and
+			years <= 5 and
+			AP.email = Exp_view.email and
+			AP.req_salary >= 12000000 and
+			AP.req_salary <= 16000000;
 
 -------------------
 -- 8
