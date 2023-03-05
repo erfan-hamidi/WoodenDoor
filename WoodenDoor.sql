@@ -68,7 +68,7 @@ CREATE table Job_ad(
   country varchar(20) not null,
   city varchar(20) not null,
   app_address varchar(100) not null,
-  job_description varchar(255),
+  job_description text,
   CONSTRAINT JID_pkey PRIMARY KEY (JID),
   CONSTRAINT jemail_fk foreign key (email) references Employer(email)
 
@@ -78,7 +78,7 @@ CREATE table Job_ad(
 CREATE table Post(
 
 	PID int not null auto_increment,
-	ptext varchar(255),
+	ptext text,
 	pstate varchar(10) not null,
 	pdate datetime not null,
 	email varchar(255) not null,
