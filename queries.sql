@@ -89,14 +89,14 @@ where years >= 3 and
 -- 8
 
 select *
-from User
-where Email in (
-	select distinct U.Email
-	from Applicant AP, User U, Job_ad JA, Job_Req JR
-	where U.Email = AP.Email_FK and
-				Sex <> "Male" and
-				JR.Email_FK = AP.Email_FK and
-				JR.JID_FK = JA.JID and
+from User_field
+where email in (
+	select distinct U.email
+	from Applicant AP, User_field U, Job_ad JA, Job_req JR
+	where U.email = AP.email and
+				U.sex <> 'M' and
+				JR.email = AP.email and
+				JR.jid = JA.JID and
 				AP.Country = JA.Country and
 				AP.City = JA.City
 );
