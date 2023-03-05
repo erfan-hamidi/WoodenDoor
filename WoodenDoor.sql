@@ -21,12 +21,12 @@ CREATE table Company(
   country varchar(20),
   city varchar(20),
   com_address varchar(50),
-  CONSTRAINT  crn_pkey PRIMARY KEY (crn,email)
-				/*CONSTRAINT  crn_unique unique (crn)
+  CONSTRAINT  crn_pkey PRIMARY KEY (crn,email),
+				CONSTRAINT  crn_unique unique (crn)
 				#//CONSTRAINT email_pkey PRIMARY KEY (email),
 				#//CONSTRAINT email_fk foreign key (email) references Employer(email)  
 
-*/
+
 );
 
 
