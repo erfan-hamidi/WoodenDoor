@@ -126,25 +126,26 @@ group by U.sex;
 -------------------
 -- 11
 
-create view Exp(Email, years) AS (
-		select Email_FK, sum(age)
+create view Exp_view(email, years)
+AS (
+		select email, sum(age)
 		from Applicant as A,
-				(select timestampdiff(YEAR, Start, End) as age, Email_FK, Title, Details, Company, Salary
-				from Experiences) as Ex
-		where A.Email_FK = Ex.Email_FK
-		group by Email_FK
+				(select timestampdiff(YEAR, startdate, enddate) as age, E.*
+				from Experiences E) as Ex
+		where A.email = Ex.email
+		group by email
 );
 
 select P.*
-from Post P, Applicant AP, Exp
-where P.Email_FK = AP.Email_FK and
-			Exp.years <= 4 and Exp.years >= 2 and
-			Exp.Email = AP.Email_FK and Exp.Email = P.Email_FK and
-			P.Email_FK in (
-				select distinct AP.Email_FK
-				from Applicant AP, Job_Req JR
-				where JR.Email_FK = AP.Email_FK and
-							JR.State <> "Failed"
+from Post P, Applicant AP, Exp_view
+where P.email = AP.email and
+			Exp_view.years <= 4 and Exp_view.years >= 2 and
+			Exp_view.email = AP.email and Exp_view.email = P.email and
+			P.email in (
+				select distinct AP.email
+				from Applicant AP, Job_req JR
+				where JR.email = AP.email and
+							JR.reqstate <> 'Failed'
 			);
 
 -------------------
