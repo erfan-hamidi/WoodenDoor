@@ -24,10 +24,11 @@ having count(*) >= 20
 
 select C.*
 from Employer E, Job_ad JA, Tags T, Company C
-where JID = JID_FK and
-			Email_FK = Email_FK and
+where JA.JID = T.jid_fk and
+			C.email = E.email and
+			JA.email = E.email and
 			Tags <> "Python" and
-			CRN = CRN_FK;
+			C.crn = E.crn;
 
 -------------------
 -- 5
