@@ -34,6 +34,7 @@ CREATE table Employer(
 
   email varchar(255) not null, 
   crn varchar(20) not null,
+	Position varchar(20),
   CONSTRAINT eemail_pkey PRIMARY KEY (email),
   CONSTRAINT email_fk_user foreign key (email) references User_field(email),
   CONSTRAINT crn_fk foreign key (crn) references Company(crn) 
