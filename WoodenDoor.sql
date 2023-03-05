@@ -7,7 +7,7 @@ CREATE table User_field(
 	bdate    date NOT null,
 	sex      char NOT null,
 	email   varchar(255) not null,
-	pic_profile varchar(255) ,
+	pic_profile varchar(255),
 	CONSTRAINT user_pkey PRIMARY KEY (email)
 
 );
@@ -21,11 +21,11 @@ CREATE table Company(
   country varchar(20),
   city varchar(20),
   com_address varchar(50),
-  CONSTRAINT  crn_pkey PRIMARY KEY (crn,email),
-				CONSTRAINT  crn_unique unique (crn)
-				#//CONSTRAINT email_pkey PRIMARY KEY (email),
-				#//CONSTRAINT email_fk foreign key (email) references Employer(email)  
-
+  CONSTRAINT  crn_pkey PRIMARY KEY (crn,email)
+				/*CONSTRAINT  crn_unique unique (crn)
+				--CONSTRAINT email_pkey PRIMARY KEY (email),
+				--CONSTRAINT email_fk foreign key (email) references Employer(email)  
+*/
 
 );
 
@@ -40,7 +40,6 @@ CREATE table Employer(
   CONSTRAINT crn_fk foreign key (crn) references Company(crn) 
 
 );
-
 
 alter table Company add CONSTRAINT mail_fk foreign key (email) references Employer(email);
 
@@ -183,3 +182,4 @@ CREATE table Save_post(
 	CONSTRAINT pid_save foreign key (pid_fk) references Post(pID)
 
 );
+
