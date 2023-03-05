@@ -116,12 +116,12 @@ where JA.Salary >= AVS.avg_salary;
 -------------------
 -- 10
 
-select avg(Req_Salary)
-from Applicant AP, User U, Job_Req JR
-where U.Email = AP.Email_FK and
-			JR.Email_FK = AP.Email_FK and
-			JR.State <> "Accepted"
-group by U.Sex;
+select avg(req_salary)
+from Applicant AP, User_field U, Job_req JR
+where U.email = AP.email and
+			JR.email = AP.email and
+			JR.reqstate <> 'Accepted'
+group by U.sex;
 
 -------------------
 -- 11
