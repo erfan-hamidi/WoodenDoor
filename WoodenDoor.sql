@@ -132,7 +132,7 @@ CREATE table images(
 
 );
 
-CREATE table skill(
+CREATE table skills(
     text_skill text,
     email text,
     CONSTRAINT skill_pkey PRIMARY key  (text_skill,email),
