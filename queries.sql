@@ -105,7 +105,7 @@ where email in (
 -- 9
 
 create view Avg_Salary (avg_salary) as (
-	select avg(Req_Salary)
+	select avg(req_salary)
 	from Applicant
 );
 
