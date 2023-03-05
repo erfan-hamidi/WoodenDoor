@@ -151,21 +151,21 @@ where P.email = AP.email and
 -------------------
 -- 12
 
-create view Comp_avg_salary_accepted (CRN, avg_salary_accepted) as (
-	select distinct Company.CRN, avg(AP.Req_salary)
-	from Company, Employer EM, Job_Ad JA, Job_Req JR, Applicant AP
-	where Company.CRN = EM.CRN_FK and
-	EM.Email_FK = JA.Email_FK and
+create view Comp_avg_salary_accepted (crn, avg_salary_accepted) as (
+	select distinct Company.crn, avg(AP.req_salary)
+	from Company, Employer EM, Job_ad JA, Job_req JR, Applicant AP
+	where Company.crn = EM.crn and
+	EM.email = JA.email and
 	JA.JID = JR.JID_FK and
-	JR.Email_FK = AP.Email_FK and
+	JR.email = AP.email and
 	JR.State <> "Accepted"
 );
 
 create view Max_Salary_Req_Female (MSRF) as (
 	select max(AP.Req_Salary)
 	from User U, Applicant AP, Job_Req JR
-	where U.Email = AP.Email_FK and
-	AP.Email_FK = JR.Email_FK and
+	where U.Email = AP.email and
+	AP.email = JR.email and
 	JR.State <> "Accepted" and
 	U.Sex <> "Female"
 );
@@ -195,7 +195,7 @@ create view Most_Popular_Post(PID) as (
 create view Users_Post_Saved (Email) as (
 	select U.Email
 	from User as U, Save as S, Most_Popular_Post as MPP
-	where U.Email = S.Email_FK and
+	where U.Email = S.email and
 	S.PID_FK = MPP.PID
 );
 
@@ -203,7 +203,7 @@ create view Users_Post_Saved (Email) as (
 create view 2Comment (Email) as (
 	select U.Email
 	from User as U, Comment CM
-	where U.Email = CM.Email_FK and PID_FK not in (
+	where U.Email = CM.email and PID_FK not in (
 		select *
 		from Most_Popular_Post
 	)
