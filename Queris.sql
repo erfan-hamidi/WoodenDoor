@@ -24,20 +24,21 @@ having count(*) >= 20
 
 select C.*
 from Employer E, Job_ad JA, Tags T, Company C
-where JA.JID = T.jid_fk and
-			C.email = E.email and
-			JA.email = E.email and
-			Tags <> "Python" and
-			C.crn = E.crn;
+where C.crn = E.crn and
+			E.email = JA.email and
+			JA.JID = T.jid_fk and
+			t.tag <> 'Python';
 
 -------------------
 -- 5
 
-select Email, FName, LName, BDate, Sex, Profile
-from Applicant A, User U, Job_Req J
-where J.State <> "Failed" and U.Email = A.Email_FK and A.Email_FK = J.Email_FK;
-group by U.Email
-having count(*) >= 5
+select A.*
+from Applicant A, User_field U, Job_req J
+where J.reqstate <> 'Failed' and
+			U.email = A.email and
+			A.email = J.email
+group by U.email
+having count(*) >= 5;
 
 -------------------
 -- 6
