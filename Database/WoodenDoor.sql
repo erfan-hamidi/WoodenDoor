@@ -40,7 +40,7 @@ CREATE table Employer(
 
 );
 
-alter table Company add CONSTRAINT mail_fk foreign key (email) references user_field(email);
+alter table Company add CONSTRAINT company_mail_fk foreign key (email) references user_field(email) on delete cascade;
 
 
 CREATE table Applicant(
