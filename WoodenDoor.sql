@@ -1,4 +1,3 @@
-use woodendoor;
 
 CREATE table User_field(
 
@@ -21,11 +20,11 @@ CREATE table Company(
   country varchar(20),
   city varchar(20),
   com_address varchar(50),
-  CONSTRAINT  crn_pkey PRIMARY KEY (crn,email)
-				/*CONSTRAINT  crn_unique unique (crn)
+  CONSTRAINT  crn_pkey PRIMARY KEY (crn,email),
+				CONSTRAINT  crn_unique unique (crn)
 				--CONSTRAINT email_pkey PRIMARY KEY (email),
 				--CONSTRAINT email_fk foreign key (email) references Employer(email)  
-*/
+
 
 );
 
@@ -41,7 +40,7 @@ CREATE table Employer(
 
 );
 
-alter table Company add CONSTRAINT mail_fk foreign key (email) references Employer(email);
+alter table Company add CONSTRAINT mail_fk foreign key (email) references user_field(email);
 
 
 CREATE table Applicant(
@@ -59,8 +58,8 @@ CREATE table Applicant(
 
 CREATE table Job_ad(
 
-  JID int not null auto_increment,
-  jdate datetime not null,
+  JID serial not null,
+  jdate date not null,
   title varchar(50) not null,
   visibility boolean not null,
   jstate varchar(10),
@@ -77,10 +76,10 @@ CREATE table Job_ad(
 
 CREATE table Post(
 
-	PID int not null auto_increment,
+	PID serial not null,
 	ptext text,
 	pstate varchar(10) not null,
-	pdate datetime not null,
+	pdate date not null,
 	email varchar(255) not null,
 	CONSTRAINT pID_pkey PRIMARY KEY (pID), 
 	CONSTRAINT pemail_fk foreign key (email) references User_field(email)
@@ -105,7 +104,7 @@ CREATE table Experience(
 
 CREATE table Job_req(
 
-	jid int not null auto_increment,
+	jid serial not null,
 	email varchar(255) not null,
 	reqstate varchar(10) not null,
 	reqdate date not null,
@@ -118,7 +117,7 @@ CREATE table Job_req(
 );
 
 CREATE TABLE Post_comment (
-  CID int not null auto_increment,
+  CID serial not null,
   ctext varchar(255) not null,
   cdate date not null,
   email varchar(255) not null,
