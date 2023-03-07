@@ -112,7 +112,7 @@ CREATE table Job_req(
 	reqresume text,
 	CONSTRAINT jpkey PRIMARY KEY (email,jid),
 	CONSTRAINT jremail_fk foreign key (email) references Applicant(email),
-	CONSTRAINT jid_fk foreign key (jid) references Job_ad(JID)
+	CONSTRAINT jid_fk foreign key (jid) references Job_ad(JID) on delete cascade
 
 );
 
@@ -135,7 +135,7 @@ CREATE table Tags(
 	tag varchar(50) not null,
 	jid_fk int not null,
 	CONSTRAINT tag_pkey PRIMARY KEY (tag,jid_fk),
-	CONSTRAINT jid_tag foreign key (jid_fk) references Job_ad(JID)
+	CONSTRAINT jid_tag foreign key (jid_fk) references Job_ad(JID) on delete cascade
 
 );
 
