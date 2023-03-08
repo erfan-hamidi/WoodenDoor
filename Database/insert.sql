@@ -75,16 +75,23 @@ VALUES
 
 
 -- Post
-/*
-INSERT INTO Post (ptext, pstate, pdate, email)
-SELECT 
-	CONCAT('Post ', CAST(ROW_NUMBER() OVER () AS TEXT)),
-	CASE WHEN random() < 0.5 THEN 'published' ELSE 'draft' END,
-	CURRENT_DATE - (FLOOR(random() * 365) * INTERVAL '1 day'),
-	email
-FROM User_field
-LIMIT 30;
-*/
+DO $$ 
+DECLARE 
+    counter INTEGER := 0; 
+		BEGIN 
+			    WHILE counter < 600 LOOP 
+        INSERT INTO Post (ptext, pstate, pdate, email) 
+        SELECT 
+            CONCAT('Post ', CAST(ROW_NUMBER() OVER () AS TEXT)),
+            CASE WHEN random() < 0.9 THEN 'published' ELSE 'draft' END,
+            CURRENT_DATE - (FLOOR(random() * 365) * INTERVAL '1 day'),
+            email 
+        FROM User_field 
+        LIMIT 40; 
+        counter := counter + 40; 
+    END LOOP; 
+END $$;
+
 
 
 -- Post_comment
