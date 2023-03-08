@@ -104,7 +104,7 @@ CREATE table Experience(
 
 CREATE table Job_req(
 
-	jid serial not null,
+	jid int not null,
 	email varchar(255) not null,
 	reqstate varchar(10) not null,
 	reqdate date not null,
