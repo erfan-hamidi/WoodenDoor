@@ -12,3 +12,6 @@ def index(req):
     r = json.dumps(res)
     print(r)
     return HttpResponse(r)
+
+def starting(req):
+    return render(req, "API/index.html")

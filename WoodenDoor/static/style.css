@@ -1,0 +1,149 @@
+@font-face {
+  font-family: 'Shabnam';
+  src: url('fonts/Shabnam.ttf') format('truetype');
+  font-weight: normal;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Shabnam', sans-serif;
+  direction: rtl;
+}
+
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 36px;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+nav ul li {
+  margin-right: 20px;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+main {
+  margin: 20px;
+  text-align: center;
+}
+
+.job-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.job {
+  background-color: #eee;
+  margin: 10px;
+  padding: 10px;
+  flex-basis: calc(33.33% - 20px);
+  text-align: right;
+}
+
+.job h3 {
+  margin: 0;
+  font-size: 24px;
+  font-family: 'Shabnam', sans-serif;
+}
+
+.job p {
+  margin: 0;
+  font-size: 16px;
+  color: #333;
+  font-family: 'Shabnam', sans-serif;
+  text-align: right;
+}
+.job p:last-of-type {
+  margin-bottom: 10px;
+}
+
+.tags {
+  margin-top: 10px;
+}
+
+.tags span {
+  display: inline-block;
+  background-color: #333;
+  color: #fff;
+  padding: 5px 10px;
+  margin-right: 5px;
+  font-size: 14px;
+  font-family: 'Shabnam', sans-serif;
+}
+
+.job-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.job {
+  background-color: #eee;
+  margin: 10px;
+  padding: 10px;
+  flex-basis: calc(33.33% - 20px);
+  text-align: right;
+}
+
+.tag-search-form {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.tag-search-form input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  margin-right: 10px;
+}
+
+.tag-search-form button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.tag-search-form button:hover {
+  background-color: #45a049;
+}
+
+
+ul {
+  display: flex;
+  justify-content: center;
+  margin-top: 200px;
+  margin-bottom: 200px;
+}
+
+
+li {
+  margin: 0 10px;
+}
+
+.tag-search-form {
+	margin-bottom: 30px;
+	margin-top: 30px;
+}

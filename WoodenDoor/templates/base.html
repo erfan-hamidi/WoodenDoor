@@ -1,0 +1,35 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>WoodenDoor</title>
+		<link rel="stylesheet" href={% static 'style.css' %}>
+
+	</head>
+	<body>
+		<header>
+			<h1>WoodenDoor</h1>
+			<nav>
+				<ul>
+					<li><a href="#">صفحه اصلی</a></li>
+					<li><a href="#">درباره ما</a></li>
+					<li><a href="#">تماس با ما</a></li>
+				</ul>
+			</nav>
+			<form class="tag-search-form">
+				<input type="text" id="tag-search" placeholder="جستجوی تگ...">
+				<button type="submit">جستجو</button>
+			</form>
+		</header>
+
+        {% block content %}
+        {% endblock content %}
+
+        <footer>
+			<p>کلیه حقوق مادی و معنوی برای سایت کاریابی محفوظ است.</p>
+		</footer>
+
+	</body>
+</html>
