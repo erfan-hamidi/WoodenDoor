@@ -244,11 +244,14 @@ VALUES
 */
 
 -- Save_post
-
+/*
 INSERT INTO Save_post (email, pid_fk)
 SELECT U.email, pid
 FROM User_field U, Post
-WHERE random() < 0.5
 ORDER BY random()
-LIMIT 50;
+LIMIT 500;
+*/
+
+-- React
+
 
