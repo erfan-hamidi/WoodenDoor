@@ -225,7 +225,7 @@ INSERT INTO Skills (text_Skills, email) VALUES
 */
 
 -- Experiences
-
+/*
 INSERT INTO Experience (email, title, details, Company, salary, startdate, enddate)
 VALUES
 ('amartin@gmail.com', 'Software Engineer', 'Developed and maintained software applications', 'ABC Inc.', 75000, '2018-01-01', '2021-06-30'),
@@ -241,3 +241,14 @@ VALUES
 ('ilee@hotmail.com', 'Human Resources Manager', 'Managed HR functions including recruiting, onboarding, and performance management', 'ABC Inc.', 85000, '2021-01-01', '2023-03-08'),
 ('mgarcia@yahoo.com', 'Financial Analyst', 'Analyzed financial data and prepared reports for management', 'XYZ Corp.', 70000, '2022-02-01', '2023-03-08'),
 ('mrodriguez@gmail.com', 'Customer Service Representative', 'Handled customer inquiries and resolved issues', '123 Corp.', 55000, '2021-03-01', '2022-11-30');
+*/
+
+-- Save_post
+
+INSERT INTO Save_post (email, pid_fk)
+SELECT U.email, pid
+FROM User_field U, Post
+WHERE random() < 0.5
+ORDER BY random()
+LIMIT 50;
+
