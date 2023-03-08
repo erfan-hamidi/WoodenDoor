@@ -161,7 +161,7 @@ INSERT INTO Tags ( tag, jid_fk) VALUES
 */
 
 -- Images
-
+/*
 INSERT INTO Images (url_image, pid_fk) VALUES
 ('https://example.com/image1.jpg', 1),
 ('https://example.com/image2.jpg', 1),
@@ -193,4 +193,31 @@ INSERT INTO Images (url_image, pid_fk) VALUES
 ('https://example.com/image28.jpg', 14),
 ('https://example.com/image29.jpg', 15),
 ('https://example.com/image30.jpg', 15);
+*/
 
+-- Skills
+INSERT INTO Skills (text_Skills, email) VALUES
+('Python', 'amartin@gmail.com'),
+('JavaScript', 'amartin@gmail.com'),
+('SQL', 'amartin@gmail.com'),
+('React', 'amartin@gmail.com'),
+('Python', 'esmith@hotmail.com'),
+('Java', 'esmith@hotmail.com'),
+('C++', 'njohnson@yahoo.com'),
+('JavaScript', 'njohnson@yahoo.com'),
+('React', 'njohnson@yahoo.com'),
+('Python', 'lwilson@hotmail.com'),
+('C#', 'lwilson@hotmail.com'),
+('SQL', 'lwilson@hotmail.com'),
+('Python', 'smoore@yahoo.com'),
+('JavaScript', 'smoore@yahoo.com'),
+('Ruby', 'ebrown@gmail.com'),
+('Python', 'ebrown@gmail.com'),
+('SQL', 'ebrown@gmail.com'),
+('Java', 'ilee@hotmail.com'),
+('JavaScript', 'ilee@hotmail.com'),
+('Python', 'mgarcia@yahoo.com'),
+('C++', 'mgarcia@yahoo.com'),
+('JavaScript', 'mrodriguez@gmail.com'),
+('React', 'mrodriguez@gmail.com'),
+('SQL', 'mrodriguez@gmail.com');
