@@ -132,6 +132,7 @@ INSERT INTO Job_req (jid, email, reqstate, reqdate, reqtext, reqresume) VALUES
 */
 
 -- Tags
+/*
 INSERT INTO Tags ( tag, jid_fk) VALUES
 ('Software Engineer', 6),
 ('C', 6),
@@ -157,3 +158,39 @@ INSERT INTO Tags ( tag, jid_fk) VALUES
 ('Django', 12),
 ('Web-Server', 12),
 ('Driver', 13);
+*/
+
+-- Images
+
+INSERT INTO Images (url_image, pid_fk) VALUES
+('https://example.com/image1.jpg', 1),
+('https://example.com/image2.jpg', 1),
+('https://example.com/image3.jpg', 2),
+('https://example.com/image4.jpg', 2),
+('https://example.com/image5.jpg', 3),
+('https://example.com/image6.jpg', 3),
+('https://example.com/image7.jpg', 4),
+('https://example.com/image8.jpg', 4),
+('https://example.com/image9.jpg', 5),
+('https://example.com/image10.jpg', 5),
+('https://example.com/image11.jpg', 6),
+('https://example.com/image12.jpg', 6),
+('https://example.com/image13.jpg', 7),
+('https://example.com/image14.jpg', 7),
+('https://example.com/image15.jpg', 8),
+('https://example.com/image16.jpg', 8),
+('https://example.com/image17.jpg', 9),
+('https://example.com/image18.jpg', 9),
+('https://example.com/image19.jpg', 10),
+('https://example.com/image20.jpg', 10),
+('https://example.com/image21.jpg', 11),
+('https://example.com/image22.jpg', 11),
+('https://example.com/image23.jpg', 12),
+('https://example.com/image24.jpg', 12),
+('https://example.com/image25.jpg', 13),
+('https://example.com/image26.jpg', 13),
+('https://example.com/image27.jpg', 14),
+('https://example.com/image28.jpg', 14),
+('https://example.com/image29.jpg', 15),
+('https://example.com/image30.jpg', 15);
+
