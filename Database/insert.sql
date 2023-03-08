@@ -196,6 +196,7 @@ INSERT INTO Images (url_image, pid_fk) VALUES
 */
 
 -- Skills
+/*
 INSERT INTO Skills (text_Skills, email) VALUES
 ('Python', 'amartin@gmail.com'),
 ('JavaScript', 'amartin@gmail.com'),
@@ -221,3 +222,22 @@ INSERT INTO Skills (text_Skills, email) VALUES
 ('JavaScript', 'mrodriguez@gmail.com'),
 ('React', 'mrodriguez@gmail.com'),
 ('SQL', 'mrodriguez@gmail.com');
+*/
+
+-- Experiences
+
+INSERT INTO Experience (email, title, details, Company, salary, startdate, enddate)
+VALUES
+('amartin@gmail.com', 'Software Engineer', 'Developed and maintained software applications', 'ABC Inc.', 75000, '2018-01-01', '2021-06-30'),
+('amartin@gmail.com', 'Project Manager', 'Led a team of developers to deliver software projects on time and within budget', 'XYZ Corp.', 85000, '2021-07-01', '2022-12-31'),
+('esmith@hotmail.com', 'Marketing Manager', 'Developed and implemented marketing campaigns', 'ABC Inc.', 80000, '2019-02-01', '2022-05-31'),
+('esmith@hotmail.com', 'Sales Representative', 'Generated new leads and closed deals', 'XYZ Corp.', 60000, '2022-06-01', '2023-02-28'),
+('njohnson@yahoo.com', 'Data Analyst', 'Analyzed data and generated reports', '123 Corp.', 70000, '2020-03-01', '2021-12-31'),
+('njohnson@yahoo.com', 'Data Scientist', 'Built and trained machine learning models', '456 Corp.', 90000, '2022-01-01', '2023-03-08'),
+('odavis@gmail.com', 'Senior Developer', 'Designed and implemented software solutions', 'ABC Inc.', 100000, '2017-01-01', '2022-03-31'),
+('lwilson@hotmail.com', 'IT Manager', 'Managed IT infrastructure and systems', 'XYZ Corp.', 90000, '2018-04-01', '2022-02-28'),
+('smoore@yahoo.com', 'Graphic Designer', 'Designed marketing materials and websites', 'ABC Inc.', 60000, '2020-01-01', '2022-12-31'),
+('ebrown@gmail.com', 'Product Manager', 'Managed the product lifecycle from ideation to launch', 'XYZ Corp.', 95000, '2019-06-01', '2022-09-30'),
+('ilee@hotmail.com', 'Human Resources Manager', 'Managed HR functions including recruiting, onboarding, and performance management', 'ABC Inc.', 85000, '2021-01-01', '2023-03-08'),
+('mgarcia@yahoo.com', 'Financial Analyst', 'Analyzed financial data and prepared reports for management', 'XYZ Corp.', 70000, '2022-02-01', '2023-03-08'),
+('mrodriguez@gmail.com', 'Customer Service Representative', 'Handled customer inquiries and resolved issues', '123 Corp.', 55000, '2021-03-01', '2022-11-30');
