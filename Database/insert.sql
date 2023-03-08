@@ -130,3 +130,30 @@ INSERT INTO Job_req (jid, email, reqstate, reqdate, reqtext, reqresume) VALUES
 (12, 'mgarcia@yahoo.com', 'approved', '2022-05-15', 'I am applying for the Back-end Developer position', 'I have experience with Python and Django.'),
 (13, 'mrodriguez@gmail.com', 'rejected', '2022-06-01', 'I am not interested in the Driver position', NULL);
 */
+
+-- Tags
+INSERT INTO Tags ( tag, jid_fk) VALUES
+('Software Engineer', 6),
+('C', 6),
+('C++', 6),
+('Marketing', 7),
+('Specialist', 7),
+('Social', 7),
+('Accountant', 8),
+('Finance', 8),
+('Designer', 9),
+('Front-End', 9),
+('Artist', 9),
+('CSS', 9),
+('Bootstrap', 9),
+('Sales', 10),
+('Front-End', 11),
+('CSS', 11),
+('SASS', 11),
+('UI', 11),
+('UX', 11),
+('Back-End', 12),
+('Python', 12),
+('Django', 12),
+('Web-Server', 12),
+('Driver', 13);
