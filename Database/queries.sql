@@ -7,7 +7,7 @@ from Applicant;
 -- 2
 
 select *
-from Applicant join User_field on Email_FK = Email;
+from Applicant A join User_field U on A.email = U.email;
 where Country <> "United States" and City <> "San Franscisco" and sex <> 'F';
 
 -------------------
@@ -16,28 +16,28 @@ where Country <> "United States" and City <> "San Franscisco" and sex <> 'F';
 select JA.*
 from Job_ad JA, Job_req JR
 where JA.JID = JR.jid
-group by JID
-having count(*) >= 20
+group by JA.JID
+having count(*) >= 20;
 
 -------------------
 -- 4
 
-select C.*
+select distinct C.*
 from Employer E, Job_ad JA, Tags T, Company C
 where C.crn = E.crn and
 			E.email = JA.email and
 			JA.JID = T.jid_fk and
-			t.tag <> 'Python';
+			t.tag = 'Python';
 
 -------------------
 -- 5
 
-select A.*
+select distinct A.*
 from Applicant A, User_field U, Job_req J
 where J.reqstate <> 'Failed' and
 			U.email = A.email and
 			A.email = J.email
-group by U.email
+group by A.email
 having count(*) >= 5;
 
 -------------------

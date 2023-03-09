@@ -1,8 +1,8 @@
 -- User_field
-/*
+
 INSERT INTO User_field (fname, lname, bdate, sex, email, pic_profile)
 VALUES
-('John', 'Doe', '1990-05-15', 'M', 'johndoe@example.com', 'https://picsum.photos/200'),
+/*('John', 'Doe', '1990-05-15', 'M', 'johndoe@example.com', 'https://picsum.photos/200'),
 ('Jane', 'Doe', '1995-07-22', 'F', 'janedoe@example.com', 'https://picsum.photos/200'),
 ('Bob', 'Smith', '1985-01-10', 'M', 'bobsmith@example.com', 'https://picsum.photos/200'),
 ('Alice', 'Jones', '1988-12-03', 'F', 'alicejones@example.com', 'https://picsum.photos/200'),
@@ -16,7 +16,17 @@ VALUES
 ('Ethan', 'Brown', '1997-02-22', 'M', 'ebrown@gmail.com', 'https://picsum.photos/200'),
 ('Isabella', 'Lee', '1994-09-09', 'F', 'ilee@hotmail.com', 'https://picsum.photos/200'),
 ('Mason', 'Garcia', '1991-06-30', 'M', 'mgarcia@yahoo.com', 'https://picsum.photos/200'),
-('Mia', 'Rodriguez', '1990-12-18', 'F', 'mrodriguez@gmail.com', 'https://picsum.photos/200');
+('Mia', 'Rodriguez', '1990-12-18', 'F', 'mrodriguez@gmail.com', 'https://picsum.photos/200'),
+('Pedram', 'Pooya', '2010-09-11', 'M', 'pedram.pooya.2010@gmail.com', 'https://picsum.photos/200'),
+('Pedram', 'Pooya', '2009-09-11', 'M', 'pedram.pooya.2009@gmail.com', 'https://picsum.photos/200'),
+('Pedram', 'Pooya', '2008-09-11', 'M', 'pedram.pooya.2008@gmail.com', 'https://picsum.photos/200'),
+('Pedram', 'Pooya', '2007-09-11', 'M', 'pedram.pooya.2007@gmail.com', 'https://picsum.photos/200'),
+('Pedram', 'Pooya', '2006-09-11', 'M', 'pedram.pooya.2006@gmail.com', 'https://picsum.photos/200'),
+('Pedram', 'Pooya', '2005-09-11', 'M', 'pedram.pooya.2005@gmail.com', 'https://picsum.photos/200'),
+('Pedram', 'Pooya', '2004-09-11', 'M', 'pedram.pooya.2004@gmail.com', 'https://picsum.photos/200'),
+('Pedram', 'Pooya', '2003-09-11', 'M', 'pedram.pooya.2003@gmail.com', 'https://picsum.photos/200'),
+('Pedram', 'Pooya', '2002-09-11', 'M', 'pedram.pooya.2002@gmail.com', 'https://picsum.photos/200'),
+('Pedram', 'Pooya', '2001-09-11', 'M', 'pedram.pooya.2001@gmail.com', 'https://picsum.photos/200');
 */
 
 
@@ -24,6 +34,16 @@ VALUES
 /*
 INSERT INTO Applicant (email, country, city, app_address, req_salary)
 VALUES
+('pedram.pooya.2010@gmail.com', 'Iran', 'Qom', '12 Esteghlal', 2000000),
+('pedram.pooya.2009@gmail.com', 'Iran', 'Qom', '12 Esteghlal', 2000000),
+('pedram.pooya.2008@gmail.com', 'Iran', 'Qom', '12 Esteghlal', 2000000),
+('pedram.pooya.2007@gmail.com', 'Iran', 'Qom', '12 Esteghlal', 2000000),
+('pedram.pooya.2006@gmail.com', 'Iran', 'Qom', '12 Esteghlal', 2000000),
+('pedram.pooya.2005@gmail.com', 'Iran', 'Qom', '12 Esteghlal', 2000000),
+('pedram.pooya.2004@gmail.com', 'Iran', 'Qom', '12 Esteghlal', 2000000),
+('pedram.pooya.2003@gmail.com', 'Iran', 'Qom', '12 Esteghlal', 2000000),
+('pedram.pooya.2002@gmail.com', 'Iran', 'Qom', '12 Esteghlal', 2000000),
+('pedram.pooya.2001@gmail.com', 'Iran', 'Qom', '12 Esteghlal', 2000000),
 ('amartin@gmail.com', 'USA', 'New York', '123 Main St', 50000),
 ('esmith@hotmail.com', 'Canada', 'Toronto', '456 Elm St', 60000),
 ('njohnson@yahoo.com', 'USA', 'Los Angeles', '789 Oak St', 55000),
@@ -127,6 +147,22 @@ VALUES
 -- Job_req
 /*
 INSERT INTO Job_req (jid, email, reqstate, reqdate, reqtext, reqresume) VALUES
+(6, 'pedram.pooya.2001@gmail.com', 'Failed', '2022-03-02', 'I am applying for job_ad 6', NULL),
+(7, 'pedram.pooya.2001@gmail.com', 'Failed', '2022-03-02', 'I am applying for job_ad 6', NULL),
+(8, 'pedram.pooya.2001@gmail.com', 'Failed', '2022-03-02', 'I am applying for job_ad 6', NULL),
+(9, 'pedram.pooya.2001@gmail.com', 'Failed', '2022-03-02', 'I am applying for job_ad 6', NULL),
+(11, 'pedram.pooya.2001@gmail.com', 'Failed', '2022-03-02', 'I am applying for job_ad 6', NULL),
+(12, 'pedram.pooya.2001@gmail.com', 'Failed', '2022-03-02', 'I am applying for job_ad 6', NULL),
+(10, 'pedram.pooya.2010@gmail.com', 'pending', '2022-03-02', 'I am applying for job_ad 10', NULL),
+(10, 'pedram.pooya.2009@gmail.com', 'pending', '2022-03-02', 'I am applying for job_ad 10', NULL),
+(10, 'pedram.pooya.2008@gmail.com', 'pending', '2022-03-02', 'I am applying for job_ad 10', NULL),
+(10, 'pedram.pooya.2007@gmail.com', 'pending', '2022-03-02', 'I am applying for job_ad 10', NULL),
+(10, 'pedram.pooya.2006@gmail.com', 'pending', '2022-03-02', 'I am applying for job_ad 10', NULL),
+(10, 'pedram.pooya.2005@gmail.com', 'pending', '2022-03-02', 'I am applying for job_ad 10', NULL),
+(10, 'pedram.pooya.2004@gmail.com', 'pending', '2022-03-02', 'I am applying for job_ad 10', NULL),
+(10, 'pedram.pooya.2003@gmail.com', 'pending', '2022-03-02', 'I am applying for job_ad 10', NULL),
+(10, 'pedram.pooya.2002@gmail.com', 'pending', '2022-03-02', 'I am applying for job_ad 10', NULL),
+(10, 'pedram.pooya.2001@gmail.com', 'pending', '2022-03-02', 'I am applying for job_ad 10', NULL),
 (6, 'amartin@gmail.com', 'pending', '2022-01-15', 'I am interested in the Software Engineer position', 'Attached is my resume.'),
 (7, 'esmith@hotmail.com', 'approved', '2022-02-20', 'I am applying for the Accountant position', 'My resume and cover letter are attached.'),
 (6, 'njohnson@yahoo.com', 'rejected', '2022-02-01', 'I am not interested in the Software Engineer position', NULL),
@@ -261,7 +297,7 @@ LIMIT 500;
 */
 
 -- React
-
+/*
 INSERT INTO React (Reaction, email, pid_fk) VALUES
 ('D', 'janedoe@example.com', 2),
 ('L', 'bobsmith@example.com', 3),
@@ -373,3 +409,4 @@ INSERT INTO React (Reaction, email, pid_fk) VALUES
 ('D', 'johndoe@example.com', 94),
 ('D', 'johndoe@example.com', 95),
 ('D', 'johndoe@example.com', 96);
+*/
