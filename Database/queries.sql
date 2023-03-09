@@ -48,7 +48,7 @@ AS (
 		select email, sum(age)
 		from Applicant as A,
 				(select timestampdiff(YEAR, startdate, enddate) as age, E.*
-				from Experiences E) as Ex
+				from Experience E) as Ex
 		where A.email = Ex.email
 		group by email
 );
@@ -72,7 +72,7 @@ AS (
 		select email, sum(age)
 		from Applicant as A,
 				(select timestampdiff(YEAR, startdate, enddate) as age, E.*
-				from Experiences E) as Ex
+				from Experience E) as Ex
 		where A.email = Ex.email
 		group by email
 );
@@ -131,7 +131,7 @@ AS (
 		select email, sum(age)
 		from Applicant as A,
 				(select timestampdiff(YEAR, startdate, enddate) as age, E.*
-				from Experiences E) as Ex
+				from Experience E) as Ex
 		where A.email = Ex.email
 		group by email
 );

@@ -265,7 +265,15 @@ INSERT INTO Skills (text_Skills, email) VALUES
 ('C++', 'mgarcia@yahoo.com'),
 ('JavaScript', 'mrodriguez@gmail.com'),
 ('React', 'mrodriguez@gmail.com'),
-('SQL', 'mrodriguez@gmail.com');
+('SQL', 'mrodriguez@gmail.com'),
+('objective-c', 'pedram.pooya.2001@gmail.com'),
+('objective-c', 'pedram.pooya.2002@gmail.com'),
+('network+', 'pedram.pooya.2001@gmail.com'),
+('network+', 'pedram.pooya.2002@gmail.com'),
+('network+', 'mgarcia@yahoo.com'),
+('network+', 'mrodriguez@gmail.com'),
+('objective-c', 'mgarcia@yahoo.com'),
+('objective-c', 'mrodriguez@gmail.com');
 */
 
 -- Experiences
