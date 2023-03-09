@@ -4,5 +4,55 @@
 
 
 {% block content %}
-<h1>heh</h1>
+{% for job_ad in job_ads %}
+<main>
+    <section>
+        <h2>آگهی‌های شغلی</h2>
+        <div class="job-list">
+
+            <div class="job">
+                <h3> {{ job_ad.0 }} </h3>
+                <p>ما دنبال یک نیروی تازه می‌گردیم تا بتونه آینده شرکت رو بسازه</p>
+                <p>
+                    <span>میزان حقوق پیشنهادی:</span>
+                    <span>توافقی</span>
+                </p>
+                <div class="tags">
+                    <span>devops</span>
+                    <span>intern</span>
+                </div>
+            </div>
+
+            <div class="job">
+                <h3>توسعه دهنده برنامه موبایل</h3>
+                <p>تجربه کار با React Native و Swift</p>
+                <p>
+                    <span>میزان حقوق پیشنهادی:</span>
+                    <span>15</span><span>میلیون تومان</span>
+                </p>
+                <div class="tags">
+                    <span>Android</span>
+                    <span>Flutter</span>
+                    <span>Mobile</span>
+                </div>
+            </div>
+
+            <div class="job">
+                <h3>مهندس نرم افزار</h3>
+                <p>تجربه کار با C# و ASP.NET</p>
+                <p>
+                    <span>میزان حقوق پیشنهادی:</span>
+                    <span>20</span><span>میلیون تومان</span>
+                </p>
+                <div class="tags">
+                    <span>C#</span>
+                    <span>Software Engineer</span>
+                    <span>ASP.NET</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+</main>
+{% endfor %}
 {% endblock content %}

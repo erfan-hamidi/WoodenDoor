@@ -14,4 +14,6 @@ def index(req):
     return HttpResponse(r)
 
 def starting(req):
-    return render(req, "API/index.html")
+    return render(req, "API/index.html",{
+        "job_ads" : [("sus","sd")]
+    })
