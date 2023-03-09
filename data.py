@@ -8,7 +8,7 @@ conn = psycopg2.connect(
 cursor = conn.cursor()
 
 #Executing an MYSQL function using the execute() method
-cursor.execute("select * from user_feild")
+cursor.execute("select * from job_ad")
 
 # Fetch a single row using fetchone() method.
 data = cursor.fetchall()
@@ -19,7 +19,7 @@ conn.close()
 
 import json
 data = list(data)
-#data[2] = str(data[2])
+data[2] = str(data[2])
 #r = json.dumps(data)
 print(data)
 # Connection established to: (

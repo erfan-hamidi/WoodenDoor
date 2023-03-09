@@ -59,6 +59,6 @@ class User1(models.Model):
 
 def qurey1():
     with connection.cursor() as cursor:
-        cursor.execute("select * from user_feild")
+        cursor.execute("select * from job_ad")
         res = cursor.fetchone()
     return res

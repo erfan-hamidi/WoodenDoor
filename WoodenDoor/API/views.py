@@ -14,6 +14,7 @@ def index(req):
     return HttpResponse(r)
 
 def starting(req):
+    data = models.qurey1()
     return render(req, "API/index.html",{
-        "job_ads" : [("sus","sd")]
+        "job_ads" : data
     })
