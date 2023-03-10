@@ -1,8 +1,8 @@
 -- User_field
-
+/*
 INSERT INTO User_field (fname, lname, bdate, sex, email, pic_profile)
 VALUES
-/*('John', 'Doe', '1990-05-15', 'M', 'johndoe@example.com', 'https://picsum.photos/200'),
+('John', 'Doe', '1990-05-15', 'M', 'johndoe@example.com', 'https://picsum.photos/200'),
 ('Jane', 'Doe', '1995-07-22', 'F', 'janedoe@example.com', 'https://picsum.photos/200'),
 ('Bob', 'Smith', '1985-01-10', 'M', 'bobsmith@example.com', 'https://picsum.photos/200'),
 ('Alice', 'Jones', '1988-12-03', 'F', 'alicejones@example.com', 'https://picsum.photos/200'),
@@ -265,7 +265,15 @@ INSERT INTO Skills (text_Skills, email) VALUES
 ('C++', 'mgarcia@yahoo.com'),
 ('JavaScript', 'mrodriguez@gmail.com'),
 ('React', 'mrodriguez@gmail.com'),
-('SQL', 'mrodriguez@gmail.com');
+('SQL', 'mrodriguez@gmail.com'),
+('objective-c', 'pedram.pooya.2001@gmail.com'),
+('objective-c', 'pedram.pooya.2002@gmail.com'),
+('network+', 'pedram.pooya.2001@gmail.com'),
+('network+', 'pedram.pooya.2002@gmail.com'),
+('network+', 'mgarcia@yahoo.com'),
+('network+', 'mrodriguez@gmail.com'),
+('objective-c', 'mgarcia@yahoo.com'),
+('objective-c', 'mrodriguez@gmail.com');
 */
 
 -- Experiences

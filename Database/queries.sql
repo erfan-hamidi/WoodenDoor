@@ -8,7 +8,7 @@ from Applicant;
 
 select *
 from Applicant A join User_field U on A.email = U.email;
-where Country <> "United States" and City <> "San Franscisco" and sex <> 'F';
+where Country = "United States" and City = "San Franscisco" and sex = 'F';
 
 -------------------
 -- 3
@@ -34,7 +34,7 @@ where C.crn = E.crn and
 
 select distinct A.*
 from Applicant A, User_field U, Job_req J
-where J.reqstate <> 'Failed' and
+where J.reqstate = 'Failed' and
 			U.email = A.email and
 			A.email = J.email
 group by A.email
@@ -48,7 +48,7 @@ AS (
 		select email, sum(age)
 		from Applicant as A,
 				(select timestampdiff(YEAR, startdate, enddate) as age, E.*
-				from Experiences E) as Ex
+				from Experience E) as Ex
 		where A.email = Ex.email
 		group by email
 );
@@ -58,7 +58,7 @@ from (
   select distinct email, TIMESTAMPDIFF(YEAR, bdate, CURDATE()) AS age
   from User_field U, Skills S, Exp_view
   where S.email = U.email and Exp_view.email = U.email and
-    ( text_Skills <> "objective-c" or text_Skills <> "network+" )
+    ( text_Skills = "objective-c" or text_Skills = "network+" )
   group by email
 	having count(*) >= 2
   order by Exp_view.years desc
@@ -72,7 +72,7 @@ AS (
 		select email, sum(age)
 		from Applicant as A,
 				(select timestampdiff(YEAR, startdate, enddate) as age, E.*
-				from Experiences E) as Ex
+				from Experience E) as Ex
 		where A.email = Ex.email
 		group by email
 );
@@ -94,7 +94,7 @@ where email in (
 	select distinct U.email
 	from Applicant AP, User_field U, Job_ad JA, Job_req JR
 	where U.email = AP.email and
-				U.sex <> 'M' and
+				U.sex = 'M' and
 				JR.email = AP.email and
 				JR.jid = JA.JID and
 				AP.Country = JA.Country and
@@ -120,7 +120,7 @@ select avg(req_salary)
 from Applicant AP, User_field U, Job_req JR
 where U.email = AP.email and
 			JR.email = AP.email and
-			JR.reqstate <> 'Accepted'
+			JR.reqstate = 'Accepted'
 group by U.sex;
 
 -------------------
@@ -131,7 +131,7 @@ AS (
 		select email, sum(age)
 		from Applicant as A,
 				(select timestampdiff(YEAR, startdate, enddate) as age, E.*
-				from Experiences E) as Ex
+				from Experience E) as Ex
 		where A.email = Ex.email
 		group by email
 );
@@ -145,7 +145,7 @@ where P.email = AP.email and
 				select distinct AP.email
 				from Applicant AP, Job_req JR
 				where JR.email = AP.email and
-							JR.reqstate <> 'Failed'
+							JR.reqstate = 'Failed'
 			);
 
 -------------------
@@ -158,7 +158,7 @@ create view Comp_avg_salary_accepted (crn, avg_salary_accepted) as (
 	EM.email = JA.email and
 	JA.JID = JR.JID_FK and
 	JR.email = AP.email and
-	JR.State <> "Accepted"
+	JR.State = "Accepted"
 );
 
 create view Max_Salary_Req_Female (MSRF) as (
@@ -166,8 +166,8 @@ create view Max_Salary_Req_Female (MSRF) as (
 	from User U, Applicant AP, Job_Req JR
 	where U.Email = AP.email and
 	AP.email = JR.email and
-	JR.State <> "Accepted" and
-	U.Sex <> "Female"
+	JR.State = "Accepted" and
+	U.Sex = "F"
 );
 
 select count(*)
