@@ -60,5 +60,11 @@ class User1(models.Model):
 def qurey1():
     with connection.cursor() as cursor:
         cursor.execute("select * from job_ad")
-        res = cursor.fetchone()
+        res = cursor.fetchall()
+    return res
+
+def tags():
+    with connection.cursor() as cursor:
+        cursor.execute("select * from tags")
+        res = cursor.fetchall()
     return res

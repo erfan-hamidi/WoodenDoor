@@ -4,26 +4,32 @@
 
 
 {% block content %}
-{% for job_ad in job_ads %}
+
 <main>
     <section>
         <h2>آگهی‌های شغلی</h2>
+        {% for job_ad in job_ads %}
         <div class="job-list">
 
             <div class="job">
-                <h3> {{ job_ad.1 }} </h3>
-                <p>ما دنبال یک نیروی تازه می‌گردیم تا بتونه آینده شرکت رو بسازه</p>
+                <h3> {{ job_ad.2 }} </h3>
+                <p>{{ job_ad.9 }} </p>
                 <p>
                     <span>میزان حقوق پیشنهادی:</span>
                     <span>توافقی</span>
                 </p>
+                
                 <div class="tags">
-                    <span>devops</span>
-                    <span>intern</span>
+                    {% for tag in tags %}
+                    {% if tag.1 == job_ad.0 %}
+                    <span>{{tag.0}}</span>
+                    {% endif %}
+                    {% endfor %}
                 </div>
+                
             </div>
 
-            <div class="job">
+            {% comment %} <div class="job">
                 <h3>توسعه دهنده برنامه موبایل</h3>
                 <p>تجربه کار با React Native و Swift</p>
                 <p>
@@ -49,10 +55,11 @@
                     <span>Software Engineer</span>
                     <span>ASP.NET</span>
                 </div>
-            </div>
+            </div> {% endcomment %}
 
         </div>
+        {% endfor %}
     </section>
 </main>
-{% endfor %}
+
 {% endblock content %}

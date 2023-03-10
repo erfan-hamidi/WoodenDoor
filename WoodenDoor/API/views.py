@@ -14,7 +14,10 @@ def index(req):
     return HttpResponse(r)
 
 def starting(req):
+    tag = models.tags()
     data = models.qurey1()
+    print(tag)
     return render(req, "API/index.html",{
-        "job_ads" : data
+        "job_ads" : data,
+        "tags" : tag
     })
