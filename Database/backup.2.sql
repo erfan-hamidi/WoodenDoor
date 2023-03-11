@@ -11,14 +11,8 @@ SET standard_conforming_strings = on;
 -- Roles
 --
 
-CREATE ROLE admin;
-ALTER ROLE admin WITH NOSUPERUSER NOINHERIT NOCREATEROLE NOCREATEDB LOGIN NOREPLICATION NOBYPASSRLS PASSWORD 'SCRAM-SHA-256$4096:5b4db28c1cce0063294ea639d3157a44:aa0295d50d5e266a40472eafcb717b434543ba85eb796f348402efa42a990197';
-CREATE ROLE muhmah;
-ALTER ROLE muhmah WITH SUPERUSER INHERIT CREATEROLE CREATEDB LOGIN REPLICATION BYPASSRLS PASSWORD 'SCRAM-SHA-256$4096:5b4db28c1cce0063294ea639d3157a44:aa0295d50d5e266a40472eafcb717b434543ba85eb796f348402efa42a990197';
-CREATE ROLE newuser;
-ALTER ROLE newuser WITH NOSUPERUSER INHERIT NOCREATEROLE CREATEDB LOGIN NOREPLICATION NOBYPASSRLS PASSWORD 'SCRAM-SHA-256$4096:5b4db28c1cce0063294ea639d3157a44:aa0295d50d5e266a40472eafcb717b434543ba85eb796f348402efa42a990197';
-CREATE ROLE postgres;
-ALTER ROLE postgres WITH NOSUPERUSER INHERIT NOCREATEROLE NOCREATEDB LOGIN NOREPLICATION NOBYPASSRLS PASSWORD 'SCRAM-SHA-256$4096:5b4db28c1cce0063294ea639d3157a44:aa0295d50d5e266a40472eafcb717b434543ba85eb796f348402efa42a990197';
+
+ALTER ROLE postgres WITH SUPERUSER INHERIT CREATEROLE CREATEDB LOGIN REPLICATION BYPASSRLS PASSWORD 'SCRAM-SHA-256$4096:5b4db28c1cce0063294ea639d3157a44:aa0295d50d5e266a40472eafcb717b434543ba85eb796f348402efa42a990197';
 
 
 
@@ -2008,7 +2002,7 @@ ALTER TABLE ONLY public.post_comment
 
 
 --
--- Name: SCHEMA public; Type: ACL; Schema: -; Owner: muhmah
+-- Name: SCHEMA public; Type: ACL; Schema: -; Owner: postgres
 --
 
 GRANT ALL ON SCHEMA public TO PUBLIC;
@@ -2041,13 +2035,13 @@ SET client_min_messages = warning;
 SET row_security = off;
 
 --
--- Name: woodendoor; Type: DATABASE; Schema: -; Owner: newuser
+-- Name: woodendoor; Type: DATABASE; Schema: -; Owner: postgres
 --
 
 CREATE DATABASE woodendoor WITH TEMPLATE = template0 ENCODING = 'UTF8' LOCALE = 'C';
 
 
-ALTER DATABASE woodendoor OWNER TO newuser;
+ALTER DATABASE woodendoor OWNER TO postgres;
 
 \connect woodendoor
 
@@ -2067,7 +2061,7 @@ SET default_tablespace = '';
 SET default_table_access_method = heap;
 
 --
--- Name: applicant; Type: TABLE; Schema: public; Owner: newuser
+-- Name: applicant; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.applicant (
@@ -2079,10 +2073,10 @@ CREATE TABLE public.applicant (
 );
 
 
-ALTER TABLE public.applicant OWNER TO newuser;
+ALTER TABLE public.applicant OWNER TO postgres;
 
 --
--- Name: company; Type: TABLE; Schema: public; Owner: newuser
+-- Name: company; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.company (
@@ -2096,10 +2090,10 @@ CREATE TABLE public.company (
 );
 
 
-ALTER TABLE public.company OWNER TO newuser;
+ALTER TABLE public.company OWNER TO postgres;
 
 --
--- Name: employer; Type: TABLE; Schema: public; Owner: newuser
+-- Name: employer; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.employer (
@@ -2109,10 +2103,10 @@ CREATE TABLE public.employer (
 );
 
 
-ALTER TABLE public.employer OWNER TO newuser;
+ALTER TABLE public.employer OWNER TO postgres;
 
 --
--- Name: experience; Type: TABLE; Schema: public; Owner: newuser
+-- Name: experience; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.experience (
@@ -2126,10 +2120,10 @@ CREATE TABLE public.experience (
 );
 
 
-ALTER TABLE public.experience OWNER TO newuser;
+ALTER TABLE public.experience OWNER TO postgres;
 
 --
--- Name: images; Type: TABLE; Schema: public; Owner: newuser
+-- Name: images; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.images (
@@ -2138,10 +2132,10 @@ CREATE TABLE public.images (
 );
 
 
-ALTER TABLE public.images OWNER TO newuser;
+ALTER TABLE public.images OWNER TO postgres;
 
 --
--- Name: job_ad; Type: TABLE; Schema: public; Owner: newuser
+-- Name: job_ad; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.job_ad (
@@ -2158,10 +2152,10 @@ CREATE TABLE public.job_ad (
 );
 
 
-ALTER TABLE public.job_ad OWNER TO newuser;
+ALTER TABLE public.job_ad OWNER TO postgres;
 
 --
--- Name: job_ad_jid_seq; Type: SEQUENCE; Schema: public; Owner: newuser
+-- Name: job_ad_jid_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
 CREATE SEQUENCE public.job_ad_jid_seq
@@ -2173,17 +2167,17 @@ CREATE SEQUENCE public.job_ad_jid_seq
     CACHE 1;
 
 
-ALTER TABLE public.job_ad_jid_seq OWNER TO newuser;
+ALTER TABLE public.job_ad_jid_seq OWNER TO postgres;
 
 --
--- Name: job_ad_jid_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: newuser
+-- Name: job_ad_jid_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
 ALTER SEQUENCE public.job_ad_jid_seq OWNED BY public.job_ad.jid;
 
 
 --
--- Name: job_req; Type: TABLE; Schema: public; Owner: newuser
+-- Name: job_req; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.job_req (
@@ -2196,10 +2190,10 @@ CREATE TABLE public.job_req (
 );
 
 
-ALTER TABLE public.job_req OWNER TO newuser;
+ALTER TABLE public.job_req OWNER TO postgres;
 
 --
--- Name: job_req_jid_seq; Type: SEQUENCE; Schema: public; Owner: newuser
+-- Name: job_req_jid_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
 CREATE SEQUENCE public.job_req_jid_seq
@@ -2211,17 +2205,17 @@ CREATE SEQUENCE public.job_req_jid_seq
     CACHE 1;
 
 
-ALTER TABLE public.job_req_jid_seq OWNER TO newuser;
+ALTER TABLE public.job_req_jid_seq OWNER TO postgres;
 
 --
--- Name: job_req_jid_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: newuser
+-- Name: job_req_jid_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
 ALTER SEQUENCE public.job_req_jid_seq OWNED BY public.job_req.jid;
 
 
 --
--- Name: migrations; Type: TABLE; Schema: public; Owner: newuser
+-- Name: migrations; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.migrations (
@@ -2231,10 +2225,10 @@ CREATE TABLE public.migrations (
 );
 
 
-ALTER TABLE public.migrations OWNER TO newuser;
+ALTER TABLE public.migrations OWNER TO postgres;
 
 --
--- Name: migrations_id_seq; Type: SEQUENCE; Schema: public; Owner: newuser
+-- Name: migrations_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
 CREATE SEQUENCE public.migrations_id_seq
@@ -2246,17 +2240,17 @@ CREATE SEQUENCE public.migrations_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.migrations_id_seq OWNER TO newuser;
+ALTER TABLE public.migrations_id_seq OWNER TO postgres;
 
 --
--- Name: migrations_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: newuser
+-- Name: migrations_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
 ALTER SEQUENCE public.migrations_id_seq OWNED BY public.migrations.id;
 
 
 --
--- Name: personal_access_tokens; Type: TABLE; Schema: public; Owner: newuser
+-- Name: personal_access_tokens; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.personal_access_tokens (
@@ -2273,10 +2267,10 @@ CREATE TABLE public.personal_access_tokens (
 );
 
 
-ALTER TABLE public.personal_access_tokens OWNER TO newuser;
+ALTER TABLE public.personal_access_tokens OWNER TO postgres;
 
 --
--- Name: personal_access_tokens_id_seq; Type: SEQUENCE; Schema: public; Owner: newuser
+-- Name: personal_access_tokens_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
 CREATE SEQUENCE public.personal_access_tokens_id_seq
@@ -2287,17 +2281,17 @@ CREATE SEQUENCE public.personal_access_tokens_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.personal_access_tokens_id_seq OWNER TO newuser;
+ALTER TABLE public.personal_access_tokens_id_seq OWNER TO postgres;
 
 --
--- Name: personal_access_tokens_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: newuser
+-- Name: personal_access_tokens_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
 ALTER SEQUENCE public.personal_access_tokens_id_seq OWNED BY public.personal_access_tokens.id;
 
 
 --
--- Name: post; Type: TABLE; Schema: public; Owner: newuser
+-- Name: post; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.post (
@@ -2309,10 +2303,10 @@ CREATE TABLE public.post (
 );
 
 
-ALTER TABLE public.post OWNER TO newuser;
+ALTER TABLE public.post OWNER TO postgres;
 
 --
--- Name: post_comment; Type: TABLE; Schema: public; Owner: newuser
+-- Name: post_comment; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.post_comment (
@@ -2325,10 +2319,10 @@ CREATE TABLE public.post_comment (
 );
 
 
-ALTER TABLE public.post_comment OWNER TO newuser;
+ALTER TABLE public.post_comment OWNER TO postgres;
 
 --
--- Name: post_comment_cid_seq; Type: SEQUENCE; Schema: public; Owner: newuser
+-- Name: post_comment_cid_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
 CREATE SEQUENCE public.post_comment_cid_seq
@@ -2340,17 +2334,17 @@ CREATE SEQUENCE public.post_comment_cid_seq
     CACHE 1;
 
 
-ALTER TABLE public.post_comment_cid_seq OWNER TO newuser;
+ALTER TABLE public.post_comment_cid_seq OWNER TO postgres;
 
 --
--- Name: post_comment_cid_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: newuser
+-- Name: post_comment_cid_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
 ALTER SEQUENCE public.post_comment_cid_seq OWNED BY public.post_comment.cid;
 
 
 --
--- Name: post_pid_seq; Type: SEQUENCE; Schema: public; Owner: newuser
+-- Name: post_pid_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
 CREATE SEQUENCE public.post_pid_seq
@@ -2362,17 +2356,17 @@ CREATE SEQUENCE public.post_pid_seq
     CACHE 1;
 
 
-ALTER TABLE public.post_pid_seq OWNER TO newuser;
+ALTER TABLE public.post_pid_seq OWNER TO postgres;
 
 --
--- Name: post_pid_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: newuser
+-- Name: post_pid_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
 ALTER SEQUENCE public.post_pid_seq OWNED BY public.post.pid;
 
 
 --
--- Name: react; Type: TABLE; Schema: public; Owner: newuser
+-- Name: react; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.react (
@@ -2382,10 +2376,10 @@ CREATE TABLE public.react (
 );
 
 
-ALTER TABLE public.react OWNER TO newuser;
+ALTER TABLE public.react OWNER TO postgres;
 
 --
--- Name: save_post; Type: TABLE; Schema: public; Owner: newuser
+-- Name: save_post; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.save_post (
@@ -2394,10 +2388,10 @@ CREATE TABLE public.save_post (
 );
 
 
-ALTER TABLE public.save_post OWNER TO newuser;
+ALTER TABLE public.save_post OWNER TO postgres;
 
 --
--- Name: skills; Type: TABLE; Schema: public; Owner: newuser
+-- Name: skills; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.skills (
@@ -2406,10 +2400,10 @@ CREATE TABLE public.skills (
 );
 
 
-ALTER TABLE public.skills OWNER TO newuser;
+ALTER TABLE public.skills OWNER TO postgres;
 
 --
--- Name: tags; Type: TABLE; Schema: public; Owner: newuser
+-- Name: tags; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.tags (
@@ -2418,10 +2412,10 @@ CREATE TABLE public.tags (
 );
 
 
-ALTER TABLE public.tags OWNER TO newuser;
+ALTER TABLE public.tags OWNER TO postgres;
 
 --
--- Name: user_field; Type: TABLE; Schema: public; Owner: newuser
+-- Name: user_field; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.user_field (
@@ -2434,52 +2428,52 @@ CREATE TABLE public.user_field (
 );
 
 
-ALTER TABLE public.user_field OWNER TO newuser;
+ALTER TABLE public.user_field OWNER TO postgres;
 
 --
--- Name: job_ad jid; Type: DEFAULT; Schema: public; Owner: newuser
+-- Name: job_ad jid; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.job_ad ALTER COLUMN jid SET DEFAULT nextval('public.job_ad_jid_seq'::regclass);
 
 
 --
--- Name: job_req jid; Type: DEFAULT; Schema: public; Owner: newuser
+-- Name: job_req jid; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.job_req ALTER COLUMN jid SET DEFAULT nextval('public.job_req_jid_seq'::regclass);
 
 
 --
--- Name: migrations id; Type: DEFAULT; Schema: public; Owner: newuser
+-- Name: migrations id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.migrations ALTER COLUMN id SET DEFAULT nextval('public.migrations_id_seq'::regclass);
 
 
 --
--- Name: personal_access_tokens id; Type: DEFAULT; Schema: public; Owner: newuser
+-- Name: personal_access_tokens id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.personal_access_tokens ALTER COLUMN id SET DEFAULT nextval('public.personal_access_tokens_id_seq'::regclass);
 
 
 --
--- Name: post pid; Type: DEFAULT; Schema: public; Owner: newuser
+-- Name: post pid; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.post ALTER COLUMN pid SET DEFAULT nextval('public.post_pid_seq'::regclass);
 
 
 --
--- Name: post_comment cid; Type: DEFAULT; Schema: public; Owner: newuser
+-- Name: post_comment cid; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.post_comment ALTER COLUMN cid SET DEFAULT nextval('public.post_comment_cid_seq'::regclass);
 
 
 --
--- Data for Name: applicant; Type: TABLE DATA; Schema: public; Owner: newuser
+-- Data for Name: applicant; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 COPY public.applicant (email, country, city, app_address, req_salary) FROM stdin;
@@ -2487,7 +2481,7 @@ COPY public.applicant (email, country, city, app_address, req_salary) FROM stdin
 
 
 --
--- Data for Name: company; Type: TABLE DATA; Schema: public; Owner: newuser
+-- Data for Name: company; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 COPY public.company (cname, noe, crn, email, country, city, com_address) FROM stdin;
@@ -2495,7 +2489,7 @@ COPY public.company (cname, noe, crn, email, country, city, com_address) FROM st
 
 
 --
--- Data for Name: employer; Type: TABLE DATA; Schema: public; Owner: newuser
+-- Data for Name: employer; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 COPY public.employer (email, crn, "position") FROM stdin;
@@ -2503,7 +2497,7 @@ COPY public.employer (email, crn, "position") FROM stdin;
 
 
 --
--- Data for Name: experience; Type: TABLE DATA; Schema: public; Owner: newuser
+-- Data for Name: experience; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 COPY public.experience (email, title, details, company, salary, startdate, enddate) FROM stdin;
@@ -2511,7 +2505,7 @@ COPY public.experience (email, title, details, company, salary, startdate, endda
 
 
 --
--- Data for Name: images; Type: TABLE DATA; Schema: public; Owner: newuser
+-- Data for Name: images; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 COPY public.images (url_image, pid_fk) FROM stdin;
@@ -2519,7 +2513,7 @@ COPY public.images (url_image, pid_fk) FROM stdin;
 
 
 --
--- Data for Name: job_ad; Type: TABLE DATA; Schema: public; Owner: newuser
+-- Data for Name: job_ad; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 COPY public.job_ad (jid, jdate, title, visibility, jstate, email, country, city, app_address, job_description) FROM stdin;
@@ -2527,7 +2521,7 @@ COPY public.job_ad (jid, jdate, title, visibility, jstate, email, country, city,
 
 
 --
--- Data for Name: job_req; Type: TABLE DATA; Schema: public; Owner: newuser
+-- Data for Name: job_req; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 COPY public.job_req (jid, email, reqstate, reqdate, reqtext, reqresume) FROM stdin;
@@ -2535,7 +2529,7 @@ COPY public.job_req (jid, email, reqstate, reqdate, reqtext, reqresume) FROM std
 
 
 --
--- Data for Name: migrations; Type: TABLE DATA; Schema: public; Owner: newuser
+-- Data for Name: migrations; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 COPY public.migrations (id, migration, batch) FROM stdin;
@@ -2545,7 +2539,7 @@ COPY public.migrations (id, migration, batch) FROM stdin;
 
 
 --
--- Data for Name: personal_access_tokens; Type: TABLE DATA; Schema: public; Owner: newuser
+-- Data for Name: personal_access_tokens; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 COPY public.personal_access_tokens (id, tokenable_type, tokenable_id, name, token, abilities, last_used_at, expires_at, created_at, updated_at) FROM stdin;
@@ -2553,7 +2547,7 @@ COPY public.personal_access_tokens (id, tokenable_type, tokenable_id, name, toke
 
 
 --
--- Data for Name: post; Type: TABLE DATA; Schema: public; Owner: newuser
+-- Data for Name: post; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 COPY public.post (pid, ptext, pstate, pdate, email) FROM stdin;
@@ -2561,7 +2555,7 @@ COPY public.post (pid, ptext, pstate, pdate, email) FROM stdin;
 
 
 --
--- Data for Name: post_comment; Type: TABLE DATA; Schema: public; Owner: newuser
+-- Data for Name: post_comment; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 COPY public.post_comment (cid, ctext, cdate, email, pid_fk, cidfk) FROM stdin;
@@ -2569,7 +2563,7 @@ COPY public.post_comment (cid, ctext, cdate, email, pid_fk, cidfk) FROM stdin;
 
 
 --
--- Data for Name: react; Type: TABLE DATA; Schema: public; Owner: newuser
+-- Data for Name: react; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 COPY public.react (reaction, email, pid_fk) FROM stdin;
@@ -2577,7 +2571,7 @@ COPY public.react (reaction, email, pid_fk) FROM stdin;
 
 
 --
--- Data for Name: save_post; Type: TABLE DATA; Schema: public; Owner: newuser
+-- Data for Name: save_post; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 COPY public.save_post (email, pid_fk) FROM stdin;
@@ -2585,7 +2579,7 @@ COPY public.save_post (email, pid_fk) FROM stdin;
 
 
 --
--- Data for Name: skills; Type: TABLE DATA; Schema: public; Owner: newuser
+-- Data for Name: skills; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 COPY public.skills (text_skills, email) FROM stdin;
@@ -2593,7 +2587,7 @@ COPY public.skills (text_skills, email) FROM stdin;
 
 
 --
--- Data for Name: tags; Type: TABLE DATA; Schema: public; Owner: newuser
+-- Data for Name: tags; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 COPY public.tags (tag, jid_fk) FROM stdin;
@@ -2601,7 +2595,7 @@ COPY public.tags (tag, jid_fk) FROM stdin;
 
 
 --
--- Data for Name: user_field; Type: TABLE DATA; Schema: public; Owner: newuser
+-- Data for Name: user_field; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 COPY public.user_field (fname, lname, bdate, sex, email, pic_profile) FROM stdin;
@@ -2609,49 +2603,49 @@ COPY public.user_field (fname, lname, bdate, sex, email, pic_profile) FROM stdin
 
 
 --
--- Name: job_ad_jid_seq; Type: SEQUENCE SET; Schema: public; Owner: newuser
+-- Name: job_ad_jid_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
 SELECT pg_catalog.setval('public.job_ad_jid_seq', 1, false);
 
 
 --
--- Name: job_req_jid_seq; Type: SEQUENCE SET; Schema: public; Owner: newuser
+-- Name: job_req_jid_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
 SELECT pg_catalog.setval('public.job_req_jid_seq', 1, false);
 
 
 --
--- Name: migrations_id_seq; Type: SEQUENCE SET; Schema: public; Owner: newuser
+-- Name: migrations_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
 SELECT pg_catalog.setval('public.migrations_id_seq', 2, true);
 
 
 --
--- Name: personal_access_tokens_id_seq; Type: SEQUENCE SET; Schema: public; Owner: newuser
+-- Name: personal_access_tokens_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
 SELECT pg_catalog.setval('public.personal_access_tokens_id_seq', 1, false);
 
 
 --
--- Name: post_comment_cid_seq; Type: SEQUENCE SET; Schema: public; Owner: newuser
+-- Name: post_comment_cid_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
 SELECT pg_catalog.setval('public.post_comment_cid_seq', 1, false);
 
 
 --
--- Name: post_pid_seq; Type: SEQUENCE SET; Schema: public; Owner: newuser
+-- Name: post_pid_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
 SELECT pg_catalog.setval('public.post_pid_seq', 1, false);
 
 
 --
--- Name: applicant aemail_pkey; Type: CONSTRAINT; Schema: public; Owner: newuser
+-- Name: applicant aemail_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.applicant
@@ -2659,7 +2653,7 @@ ALTER TABLE ONLY public.applicant
 
 
 --
--- Name: company crn_pkey; Type: CONSTRAINT; Schema: public; Owner: newuser
+-- Name: company crn_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.company
@@ -2667,7 +2661,7 @@ ALTER TABLE ONLY public.company
 
 
 --
--- Name: company crn_unique; Type: CONSTRAINT; Schema: public; Owner: newuser
+-- Name: company crn_unique; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.company
@@ -2675,7 +2669,7 @@ ALTER TABLE ONLY public.company
 
 
 --
--- Name: employer eemail_pkey; Type: CONSTRAINT; Schema: public; Owner: newuser
+-- Name: employer eemail_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.employer
@@ -2683,7 +2677,7 @@ ALTER TABLE ONLY public.employer
 
 
 --
--- Name: experience exppkey; Type: CONSTRAINT; Schema: public; Owner: newuser
+-- Name: experience exppkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.experience
@@ -2691,7 +2685,7 @@ ALTER TABLE ONLY public.experience
 
 
 --
--- Name: images image_pkey; Type: CONSTRAINT; Schema: public; Owner: newuser
+-- Name: images image_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.images
@@ -2699,7 +2693,7 @@ ALTER TABLE ONLY public.images
 
 
 --
--- Name: job_ad jid_pkey; Type: CONSTRAINT; Schema: public; Owner: newuser
+-- Name: job_ad jid_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.job_ad
@@ -2707,7 +2701,7 @@ ALTER TABLE ONLY public.job_ad
 
 
 --
--- Name: job_req jpkey; Type: CONSTRAINT; Schema: public; Owner: newuser
+-- Name: job_req jpkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.job_req
@@ -2715,7 +2709,7 @@ ALTER TABLE ONLY public.job_req
 
 
 --
--- Name: migrations migrations_pkey; Type: CONSTRAINT; Schema: public; Owner: newuser
+-- Name: migrations migrations_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.migrations
@@ -2723,7 +2717,7 @@ ALTER TABLE ONLY public.migrations
 
 
 --
--- Name: personal_access_tokens personal_access_tokens_pkey; Type: CONSTRAINT; Schema: public; Owner: newuser
+-- Name: personal_access_tokens personal_access_tokens_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.personal_access_tokens
@@ -2731,7 +2725,7 @@ ALTER TABLE ONLY public.personal_access_tokens
 
 
 --
--- Name: personal_access_tokens personal_access_tokens_token_unique; Type: CONSTRAINT; Schema: public; Owner: newuser
+-- Name: personal_access_tokens personal_access_tokens_token_unique; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.personal_access_tokens
@@ -2739,7 +2733,7 @@ ALTER TABLE ONLY public.personal_access_tokens
 
 
 --
--- Name: post pid_pkey; Type: CONSTRAINT; Schema: public; Owner: newuser
+-- Name: post pid_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.post
@@ -2747,7 +2741,7 @@ ALTER TABLE ONLY public.post
 
 
 --
--- Name: post_comment pstcmnt_prmkey; Type: CONSTRAINT; Schema: public; Owner: newuser
+-- Name: post_comment pstcmnt_prmkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.post_comment
@@ -2755,7 +2749,7 @@ ALTER TABLE ONLY public.post_comment
 
 
 --
--- Name: react react_pkey; Type: CONSTRAINT; Schema: public; Owner: newuser
+-- Name: react react_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.react
@@ -2763,7 +2757,7 @@ ALTER TABLE ONLY public.react
 
 
 --
--- Name: save_post save_pkey; Type: CONSTRAINT; Schema: public; Owner: newuser
+-- Name: save_post save_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.save_post
@@ -2771,7 +2765,7 @@ ALTER TABLE ONLY public.save_post
 
 
 --
--- Name: skills skills_pkey; Type: CONSTRAINT; Schema: public; Owner: newuser
+-- Name: skills skills_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.skills
@@ -2779,7 +2773,7 @@ ALTER TABLE ONLY public.skills
 
 
 --
--- Name: tags tag_pkey; Type: CONSTRAINT; Schema: public; Owner: newuser
+-- Name: tags tag_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.tags
@@ -2787,7 +2781,7 @@ ALTER TABLE ONLY public.tags
 
 
 --
--- Name: user_field user_pkey; Type: CONSTRAINT; Schema: public; Owner: newuser
+-- Name: user_field user_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.user_field
@@ -2795,14 +2789,14 @@ ALTER TABLE ONLY public.user_field
 
 
 --
--- Name: personal_access_tokens_tokenable_type_tokenable_id_index; Type: INDEX; Schema: public; Owner: newuser
+-- Name: personal_access_tokens_tokenable_type_tokenable_id_index; Type: INDEX; Schema: public; Owner: postgres
 --
 
 CREATE INDEX personal_access_tokens_tokenable_type_tokenable_id_index ON public.personal_access_tokens USING btree (tokenable_type, tokenable_id);
 
 
 --
--- Name: applicant aemail_fk; Type: FK CONSTRAINT; Schema: public; Owner: newuser
+-- Name: applicant aemail_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.applicant
@@ -2810,7 +2804,7 @@ ALTER TABLE ONLY public.applicant
 
 
 --
--- Name: employer crn_fk; Type: FK CONSTRAINT; Schema: public; Owner: newuser
+-- Name: employer crn_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.employer
@@ -2818,7 +2812,7 @@ ALTER TABLE ONLY public.employer
 
 
 --
--- Name: react email_fk_react; Type: FK CONSTRAINT; Schema: public; Owner: newuser
+-- Name: react email_fk_react; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.react
@@ -2826,7 +2820,7 @@ ALTER TABLE ONLY public.react
 
 
 --
--- Name: skills email_fk_skills; Type: FK CONSTRAINT; Schema: public; Owner: newuser
+-- Name: skills email_fk_skills; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.skills
@@ -2834,7 +2828,7 @@ ALTER TABLE ONLY public.skills
 
 
 --
--- Name: employer email_fk_user; Type: FK CONSTRAINT; Schema: public; Owner: newuser
+-- Name: employer email_fk_user; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.employer
@@ -2842,7 +2836,7 @@ ALTER TABLE ONLY public.employer
 
 
 --
--- Name: save_post email_save; Type: FK CONSTRAINT; Schema: public; Owner: newuser
+-- Name: save_post email_save; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.save_post
@@ -2850,7 +2844,7 @@ ALTER TABLE ONLY public.save_post
 
 
 --
--- Name: experience expemail_fk; Type: FK CONSTRAINT; Schema: public; Owner: newuser
+-- Name: experience expemail_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.experience
@@ -2858,7 +2852,7 @@ ALTER TABLE ONLY public.experience
 
 
 --
--- Name: job_ad jemail_fk; Type: FK CONSTRAINT; Schema: public; Owner: newuser
+-- Name: job_ad jemail_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.job_ad
@@ -2866,7 +2860,7 @@ ALTER TABLE ONLY public.job_ad
 
 
 --
--- Name: job_req jid_fk; Type: FK CONSTRAINT; Schema: public; Owner: newuser
+-- Name: job_req jid_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.job_req
@@ -2874,7 +2868,7 @@ ALTER TABLE ONLY public.job_req
 
 
 --
--- Name: tags jid_tag; Type: FK CONSTRAINT; Schema: public; Owner: newuser
+-- Name: tags jid_tag; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.tags
@@ -2882,7 +2876,7 @@ ALTER TABLE ONLY public.tags
 
 
 --
--- Name: job_req jremail_fk; Type: FK CONSTRAINT; Schema: public; Owner: newuser
+-- Name: job_req jremail_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.job_req
@@ -2890,7 +2884,7 @@ ALTER TABLE ONLY public.job_req
 
 
 --
--- Name: company mail_fk; Type: FK CONSTRAINT; Schema: public; Owner: newuser
+-- Name: company mail_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.company
@@ -2898,7 +2892,7 @@ ALTER TABLE ONLY public.company
 
 
 --
--- Name: post_comment pcemail_fk; Type: FK CONSTRAINT; Schema: public; Owner: newuser
+-- Name: post_comment pcemail_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.post_comment
@@ -2906,7 +2900,7 @@ ALTER TABLE ONLY public.post_comment
 
 
 --
--- Name: post pemail_fk; Type: FK CONSTRAINT; Schema: public; Owner: newuser
+-- Name: post pemail_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.post
@@ -2914,7 +2908,7 @@ ALTER TABLE ONLY public.post
 
 
 --
--- Name: react pid_fk_react; Type: FK CONSTRAINT; Schema: public; Owner: newuser
+-- Name: react pid_fk_react; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.react
@@ -2922,7 +2916,7 @@ ALTER TABLE ONLY public.react
 
 
 --
--- Name: save_post pid_save; Type: FK CONSTRAINT; Schema: public; Owner: newuser
+-- Name: save_post pid_save; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.save_post
@@ -2930,7 +2924,7 @@ ALTER TABLE ONLY public.save_post
 
 
 --
--- Name: images post_image; Type: FK CONSTRAINT; Schema: public; Owner: newuser
+-- Name: images post_image; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.images
@@ -2938,7 +2932,7 @@ ALTER TABLE ONLY public.images
 
 
 --
--- Name: post_comment postcommentpid_fk; Type: FK CONSTRAINT; Schema: public; Owner: newuser
+-- Name: post_comment postcommentpid_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.post_comment
@@ -2946,7 +2940,7 @@ ALTER TABLE ONLY public.post_comment
 
 
 --
--- Name: post_comment reply_fk; Type: FK CONSTRAINT; Schema: public; Owner: newuser
+-- Name: post_comment reply_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.post_comment
@@ -2954,7 +2948,7 @@ ALTER TABLE ONLY public.post_comment
 
 
 --
--- Name: DATABASE woodendoor; Type: ACL; Schema: -; Owner: newuser
+-- Name: DATABASE woodendoor; Type: ACL; Schema: -; Owner: postgres
 --
 
 GRANT ALL ON DATABASE woodendoor TO postgres;
