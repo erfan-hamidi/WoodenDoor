@@ -45,37 +45,36 @@ having count(*) >= 5;
 
 create view Exp_view(email, years)
 AS (
-		select email, sum(age)
-		from Applicant as A,
-				(select timestampdiff(YEAR, startdate, enddate) as age, E.*
-				from Experience E) as Ex
+		select A.email, sum(age)
+		from
+			Applicant as A,
+			(
+				SELECT
+					EXTRACT(YEAR FROM age(enddate, startdate)) as age,
+					E.*
+				FROM Experience E
+			) as Ex
 		where A.email = Ex.email
-		group by email
+		group by A.email
 );
 
 select avg(age)
 from (
-  select distinct email, TIMESTAMPDIFF(YEAR, bdate, CURDATE()) AS age
+  select distinct
+		U.email,
+		extract(YEAR from age((select current_date), bdate)) AS age
   from User_field U, Skills S, Exp_view
-  where S.email = U.email and Exp_view.email = U.email and
-    ( text_Skills = "objective-c" or text_Skills = "network+" )
-  group by email
+  where
+		S.email = U.email and
+		Exp_view.email = U.email and
+    ( text_Skills = 'objective-c' or text_Skills = 'network+' )
+  group by U.email
 	having count(*) >= 2
-  order by Exp_view.years desc
-);
+--  order by Exp_view.years desc
+) as avg_age;
 
 -------------------
 -- 7
-
-create view Exp_view(email, years)
-AS (
-		select email, sum(age)
-		from Applicant as A,
-				(select timestampdiff(YEAR, startdate, enddate) as age, E.*
-				from Experience E) as Ex
-		where A.email = Ex.email
-		group by email
-);
 
 select count(*)
 from Exp_view, Applicant as AP
@@ -89,8 +88,8 @@ where years >= 3 and
 -- 8
 
 select *
-from User_field
-where email in (
+from User_field U, Applicant A
+where U.email = A.email and U.email in (
 	select distinct U.email
 	from Applicant AP, User_field U, Job_ad JA, Job_req JR
 	where U.email = AP.email and
@@ -116,25 +115,15 @@ where JA.Salary >= AVS.avg_salary;
 -------------------
 -- 10
 
-select avg(req_salary)
+select U.sex, avg(req_salary)
 from Applicant AP, User_field U, Job_req JR
 where U.email = AP.email and
 			JR.email = AP.email and
-			JR.reqstate = 'Accepted'
+			JR.reqstate = 'approved'
 group by U.sex;
 
 -------------------
 -- 11
-
-create view Exp_view(email, years)
-AS (
-		select email, sum(age)
-		from Applicant as A,
-				(select timestampdiff(YEAR, startdate, enddate) as age, E.*
-				from Experience E) as Ex
-		where A.email = Ex.email
-		group by email
-);
 
 select P.*
 from Post P, Applicant AP, Exp_view
@@ -145,7 +134,7 @@ where P.email = AP.email and
 				select distinct AP.email
 				from Applicant AP, Job_req JR
 				where JR.email = AP.email and
-							JR.reqstate = 'Failed'
+							JR.reqstate = 'rejected'
 			);
 
 -------------------
@@ -156,18 +145,19 @@ create view Comp_avg_salary_accepted (crn, avg_salary_accepted) as (
 	from Company, Employer EM, Job_ad JA, Job_req JR, Applicant AP
 	where Company.crn = EM.crn and
 	EM.email = JA.email and
-	JA.JID = JR.JID_FK and
+	JA.JID = JR.jid and
 	JR.email = AP.email and
-	JR.State = "Accepted"
+	JR.reqstate = 'approved'
+	group by company.crn
 );
 
 create view Max_Salary_Req_Female (MSRF) as (
 	select max(AP.Req_Salary)
-	from User U, Applicant AP, Job_Req JR
-	where U.Email = AP.email and
+	from User_field U, Applicant AP, Job_Req JR
+	where U.email = AP.email and
 	AP.email = JR.email and
-	JR.State = "Accepted" and
-	U.Sex = "F"
+	JR.reqstate = 'approved' and
+	U.Sex = 'F'
 );
 
 select count(*)
@@ -181,37 +171,36 @@ where CASA.avg_salary_accepted > MSRF.MSRF;
 create view Most_Popular_Post(PID) as (
 	select PID
 	from (
-	  select Post.PID, sum(React.Reaction) as popularity
-	  from Post, React
-	  where React.PID_FK = Post.PID and
-	  React.Reaction  = 1
-	  group by PID
+		select pid_fk pid, sum(reaction_num) popularity
+		from react
+		group by pid_fk
+		order by popularity desc
 	) as post_likes
-
-	having max(popularity)
+	order by popularity desc
+	limit 1
 );
 
 -- pink
 create view Users_Post_Saved (Email) as (
 	select U.Email
-	from User as U, Save as S, Most_Popular_Post as MPP
+	from User_field as U, Save_post as S, Most_Popular_Post as MPP
 	where U.Email = S.email and
 	S.PID_FK = MPP.PID
 );
 
 -- green
-create view 2Comment (Email) as (
-	select U.Email
-	from User as U, Comment CM
+create view two_Comment (Email) as (
+	select U.email
+	from User_field as U, Post_comment CM
 	where U.Email = CM.email and PID_FK not in (
 		select *
 		from Most_Popular_Post
 	)
+	group by U.email
 	having count(*) >= 2
-	group by Email
-)
+);
 
-select count(*)
-from User U
-where U.Email in ( Users_Post_Saved intersect 2Comment )
+select U.sex, count(*)
+from User_field U
+where U.Email in (select email from Users_Post_Saved intersect select email from two_Comment )
 group by U.Sex;

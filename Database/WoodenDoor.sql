@@ -59,6 +59,7 @@ CREATE table Applicant(
 CREATE table Job_ad(
 
   JID serial not null,
+	salary bigint not null,
   jdate date not null,
   title varchar(50) not null,
   visibility boolean not null,
@@ -91,8 +92,8 @@ CREATE table Experience(
 
 	email varchar(255) not null,
 	title varchar(50) not null,
-	details varchar(255),
-	Company varchar(20),
+	details varchar(255) not null,
+	Company varchar(20) not null,
 	salary bigint not null,
 	startdate date not null,
 	enddate date not null,
