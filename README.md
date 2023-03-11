@@ -15,3 +15,14 @@ Set up the server python3 manage.py runserver
 (Optional) Load sample data by running python manage.py loaddata fixtures/sample_data.json.
 Start the development server by running python manage.py runserver.
 Once the server is running, you can access the project by opening a web browser and navigating to http://localhost:8000/WoodenDoor/job.
+
+
+setup postgresql:
+
+PostgreSQL -p
+
+create database WoodenDoor;
+
+Quit PostgreSQL
+
+PostgreSQL -p WoodenDoor < /backupdir/WoodenDoor-back.sql
