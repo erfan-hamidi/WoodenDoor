@@ -12,7 +12,7 @@ cursor.execute("select * from job_ad")
 
 # Fetch a single row using fetchone() method.
 data = cursor.fetchall()
-print("Connection established to: ",data, type(data))
+#print("Connection established to: ",data, type(data))
 
 #Closing the connection
 conn.close()
