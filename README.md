@@ -1,7 +1,7 @@
 # WoodenDoor
 
 WodenDoor
-website like classDoor.
+website like GlassDoor.
 
 
 Installation and Setup
