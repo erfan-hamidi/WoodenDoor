@@ -9,7 +9,7 @@ To install and set up the project, follow these steps:
 
 Install Python 3.x and PostgreSQL on your system.
 Clone the repository to your local machine.
-Install the project dependencies by running pip install -r requirements.txt.
+Install the project dependencies by running ```pip install -r requirements.txt```
 Create a PostgreSQL database for the project.
 Set up the server python3 manage.py runserver
 (Optional) Load sample data by running python manage.py loaddata fixtures/sample_data.json.
