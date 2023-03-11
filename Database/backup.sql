@@ -8,18 +8,6 @@ SET client_encoding = 'UTF8';
 SET standard_conforming_strings = on;
 
 --
--- Roles
---
-
-
-ALTER ROLE postgres WITH SUPERUSER INHERIT CREATEROLE CREATEDB LOGIN REPLICATION BYPASSRLS PASSWORD 'SCRAM-SHA-256$4096:5b4db28c1cce0063294ea639d3157a44:aa0295d50d5e266a40472eafcb717b434543ba85eb796f348402efa42a990197';
-
-
-
-
-
-
---
 -- Databases
 --
 
