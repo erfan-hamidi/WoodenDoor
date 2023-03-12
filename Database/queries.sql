@@ -34,7 +34,7 @@ where C.crn = E.crn and
 
 select distinct A.*
 from Applicant A, User_field U, Job_req J
-where J.reqstate = 'Failed' and
+where J.reqstate = 'rejected' and
 			U.email = A.email and
 			A.email = J.email
 group by A.email
