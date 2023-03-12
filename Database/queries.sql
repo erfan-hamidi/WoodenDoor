@@ -202,5 +202,16 @@ create view two_Comment (Email) as (
 
 select U.sex, count(*)
 from User_field U
-where U.Email in (select email from Users_Post_Saved intersect select email from two_Comment )
+where U.Email in (
+
+		select email
+		from Users_Post_Saved
+
+	intersect
+
+		select email
+		from two_Comment
+
+	)
+
 group by U.Sex;
