@@ -42,7 +42,7 @@ having count(*) >= 5;
 
 -------------------
 -- 6
-
+/*
 create view Exp_view(email, years)
 AS (
 		select A.email, sum(age)
@@ -57,7 +57,7 @@ AS (
 		where A.email = Ex.email
 		group by A.email
 );
-
+*/
 select avg(age)
 from (
   select distinct
@@ -102,12 +102,12 @@ where U.email = A.email and U.email in (
 
 -------------------
 -- 9
-
+/*
 create view Avg_Salary (avg_salary) as (
 	select avg(req_salary)
 	from Applicant
 );
-
+*/
 select JA.*
 from Job_Ad JA, Avg_Salary AVS
 where JA.Salary >= AVS.avg_salary;
@@ -139,7 +139,7 @@ where P.email = AP.email and
 
 -------------------
 -- 12
-
+/*
 create view Comp_avg_salary_accepted (crn, avg_salary_accepted) as (
 	select distinct Company.crn, avg(AP.req_salary)
 	from Company, Employer EM, Job_ad JA, Job_req JR, Applicant AP
@@ -150,7 +150,7 @@ create view Comp_avg_salary_accepted (crn, avg_salary_accepted) as (
 	JR.reqstate = 'approved'
 	group by company.crn
 );
-
+*/
 create view Max_Salary_Req_Female (MSRF) as (
 	select max(AP.Req_Salary)
 	from User_field U, Applicant AP, Job_Req JR
@@ -167,6 +167,7 @@ where CASA.avg_salary_accepted > MSRF.MSRF;
 -------------------
 -- 13
 
+/*
 -- yellow
 create view Most_Popular_Post(PID) as (
 	select PID
@@ -199,7 +200,7 @@ create view two_Comment (Email) as (
 	group by U.email
 	having count(*) >= 2
 );
-
+*/
 select U.sex, count(*)
 from User_field U
 where U.Email in (
@@ -213,5 +214,4 @@ where U.Email in (
 		from two_Comment
 
 	)
-
 group by U.Sex;
